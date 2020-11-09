@@ -24,11 +24,11 @@ def top_ten_ip_collector(filename):
     return Counter(ip_list).most_common(10)
 
 
-def num(s):
-    try:
-        return int(s)
-    except ValueError:
-        return 0
+# def num(s):
+#     try:
+#         return int(s)
+#     except ValueError:
+#         return 0
 
 # def top_ten_duration_request(filename):
 #     with open(filename) as log_file:
@@ -41,10 +41,8 @@ def num(s):
 #             if len(my_list) > 9:
 #                 duration_list.append(num(my_list[9]))
 #         duration_list.sort(reverse=True)
-#
-#         for j in itertools.islice(sorted(duration_error_dict, reverse=True), 10):
-#             return_dict[j] = duration_error_dict[j]
-#         return return_dict
+
+
 def top_ten_duration_request(filename):
     with open(filename) as log_file:
         my_list = list()
@@ -60,17 +58,7 @@ def top_ten_duration_request(filename):
         return return_dict
 
 
-# def top_ten_client_errors(filename):
-#     with open(filename) as log_file:
-#         my_list = list()
-#         client_error_list = list()
-#         for line in log_file:
-#             my_list.append(line.split(' '))
-#         for i in my_list:
-#             if int(i[8][0]) == 4:
-#                 client_error_list.append(i)
-#     print(client_error_list)
-#     return client_error_list
+
 def top_ten_client_errors(filename):
     with open(filename) as log_file:
         my_list = list()
@@ -81,7 +69,6 @@ def top_ten_client_errors(filename):
             if len(i) > 9:
                 if int(i[8][0]) == 4:
                     client_error_list.append(i)
-    # print(client_error_list)
     return client_error_list
 
 
@@ -95,7 +82,6 @@ def top_ten_server_errors(filename):
             if len(i) > 9:
                 if int(i[8][0]) == 5:
                   server_error_list.append(i)
-    # print(server_error_list)
     return server_error_list
 
 
